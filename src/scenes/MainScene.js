@@ -28,6 +28,7 @@ export default class MainScenet extends Phaser.Scene {
     console.log('update');
     const speed = 2.5;
     let playerVelocity = new Phaser.Math.Vector2();
+
     if (this.inputKeys.left.isDown) {
       playerVelocity.x = -1;
     } else if (this.inputKeys.right.isDown) {
@@ -48,6 +49,8 @@ export default class MainScenet extends Phaser.Scene {
     } else if (this.inputKeys.down2.isDown) {
       playerVelocity.y = 1;
     }
+
+    playerVelocity.normalize();
     playerVelocity.scale(speed);
     this.player.setVelocity(playerVelocity.x, playerVelocity.y)
   }
