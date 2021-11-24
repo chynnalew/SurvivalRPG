@@ -13,7 +13,7 @@
 
 ## Description
 
-An 8 bit survival game created with Phaser 3 and Matter physics
+An 8 bit survival game created with Phaser 3 and Matter physics. All visual assets created by me.
 
 ## Setup/Installation Requirements
 
