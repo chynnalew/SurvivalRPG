@@ -17,6 +17,10 @@ export default class MainScenet extends Phaser.Scene {
       down: Phaser.Input.Keyboard.KeyCodes.S,
       left: Phaser.Input.Keyboard.KeyCodes.A,
       right: Phaser.Input.Keyboard.KeyCodes.D,
+      up2: Phaser.Input.Keyboard.KeyCodes.UP,
+      down2: Phaser.Input.Keyboard.KeyCodes.DOWN,
+      left2: Phaser.Input.Keyboard.KeyCodes.LEFT,
+      right2: Phaser.Input.Keyboard.KeyCodes.RIGHT,
     })
   }
 
@@ -32,6 +36,16 @@ export default class MainScenet extends Phaser.Scene {
     if (this.inputKeys.up.isDown) {
       playerVelocity.y = -1;
     } else if (this.inputKeys.down.isDown) {
+      playerVelocity.y = 1;
+    }
+    if (this.inputKeys.left2.isDown) {
+      playerVelocity.x = -1;
+    } else if (this.inputKeys.right2.isDown) {
+      playerVelocity.x = 1;
+    }
+    if (this.inputKeys.up2.isDown) {
+      playerVelocity.y = -1;
+    } else if (this.inputKeys.down2.isDown) {
       playerVelocity.y = 1;
     }
     playerVelocity.scale(speed);
