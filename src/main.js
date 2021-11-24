@@ -1,3 +1,4 @@
+import MainScene from './scenes/MainScene.js';
 import Phaser from './lib/phaser.js';
 
 const config = {
@@ -6,7 +7,7 @@ const config = {
   width: 512,
   height: 512,
   backgroundColor: '#333333',
-  scene: [],
+  scene: [MainScene],
   scale: {
       zoom: 2,
   },
@@ -16,15 +17,6 @@ const config = {
       debug: true,
       gravity: {y:0},
     }
-  },
-  plugins: {
-    scene: [
-      {
-        plugin: PhaserMatterCollisionPlugin,
-        key: 'matterCollision',
-        mapping: 'matterCollision'
-      }
-    ]
   }
 };
 
