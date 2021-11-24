@@ -4,9 +4,9 @@ import Phaser from './lib/phaser.js';
 const config = {
   type: Phaser.AUTO,
   parent: 'game',
-  width: 512,
-  height: 512,
-  backgroundColor: '#333333',
+  width: 350,
+  height: 350,
+  backgroundColor: '#000000',
   scene: [MainScene],
   scale: {
       zoom: 2,
@@ -14,7 +14,7 @@ const config = {
   physics: {
     default: 'matter',
     matter: {
-      debug: true,
+      //debug: true,
       gravity: {y:0},
     }
   }

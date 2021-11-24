@@ -1,17 +1,20 @@
 import Phaser from '../lib/phaser.js';
 
-export default class MainScenet extends Phaser.Scene {
+export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
   }
 
   preload() {
-    console.log('preload');
+    this.load.spritesheet('playerFront', '../assets/player/front.png', { frameHeight: 32, frameWidth: 32 });
+    this.load.spritesheet('playerBack', '../assets/player/back.png', { frameHeight: 32, frameWidth: 32 });
+    this.load.spritesheet('playerRight', '../assets/player/right.png', { frameHeight: 32, frameWidth: 32 });
+    this.load.spritesheet('playerLeft', '../assets/player/left.png', { frameHeight: 32, frameWidth: 32})
   }
     
   create() {
-    console.log('create');
-    this.player = new Phaser.Physics.Matter.Sprite(this.matter.world);
+    this.player = new Phaser.Physics.Matter.Sprite(this.matter.world, this.game.renderer.width / 2, this.game.renderer.height / 2, 'playerFront', 0);
+    this.add.existing(this.player);
     this.inputKeys = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
