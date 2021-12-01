@@ -16,29 +16,29 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
   }
 
   animations() {
-    this.scene.anims.create({
+    this.anims.create({
       key: 'walkDown',
       frameRate: 10,
       repeat: -1,
-      frames: this.scene.anims.generateFrameNumbers('playerFront',{frames:[0,1,2,3]})
+      frames: this.anims.generateFrameNumbers('playerFront',{frames:[0,1,2,3]})
     });
-    this.scene.anims.create({
+    this.anims.create({
       key: 'walkUp',
       frameRate: 10,
       repeat: -1,
-      frames: this.scene.anims.generateFrameNumbers('playerBack',{frames:[0,1,2,3]})
+      frames: this.anims.generateFrameNumbers('playerBack',{frames:[0,1,2,3]})
     });
-    this.scene.anims.create({
+    this.anims.create({
       key: 'walkRight',
       frameRate: 10,
       repeat: -1,
-      frames: this.scene.anims.generateFrameNumbers('playerRight',{frames:[0,1,2,3]})
+      frames: this.anims.generateFrameNumbers('playerRight',{frames:[0,1,2,3]})
     });
-    this.scene.anims.create({
+    this.anims.create({
       key: 'walkLeft',
       frameRate: 10,
       repeat: -1,
-      frames: this.scene.anims.generateFrameNumbers('playerLeft',{frames:[0,1,2,3]})
+      frames: this.anims.generateFrameNumbers('playerLeft',{frames:[0,1,2,3]})
     })
   }
 
