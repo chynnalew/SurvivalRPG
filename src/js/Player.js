@@ -19,27 +19,31 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     this.anims.create({
       key: 'walkDown',
       frameRate: 10,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('playerFront',{frames:[0,1,2,3]})
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('playerFront',{frames:[1,2,3,0]})
     });
     this.anims.create({
       key: 'walkUp',
       frameRate: 10,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('playerBack',{frames:[0,1,2,3]})
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('playerBack',{frames:[1,2,3,0]})
     });
     this.anims.create({
       key: 'walkRight',
       frameRate: 10,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('playerRight',{frames:[0,1,2,3]})
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('playerRight',{frames:[1,2,3,0]})
     });
     this.anims.create({
       key: 'walkLeft',
       frameRate: 10,
-      repeat: -1,
+      repeat: 0,
       frames: this.anims.generateFrameNumbers('playerLeft',{frames:[0,1,2,3]})
     })
+  }
+
+  get velocity() {
+    return this.body.velocity;
   }
 
   update() {
@@ -64,6 +68,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
     playerVelocity.normalize();
     playerVelocity.scale(speed);
-    this.setVelocity(playerVelocity.x, playerVelocity.y)
+    this.setVelocity(playerVelocity.x, playerVelocity.y);
   }
 }
