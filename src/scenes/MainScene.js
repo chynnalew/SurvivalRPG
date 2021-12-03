@@ -8,9 +8,19 @@ export default class MainScene extends Phaser.Scene {
 
   preload() {
     Player.preload(this);
+    this.load.image('tiles', '../../assets/backgrounds/practicetileset-topdown.png');
+    this.load.tilemapTiledJSON('map', '../../assets/backgrounds/practicetileset-topdown.json');
   }
-    
+
   create() {
+    const map = this.make.tilemap({ key: 'map' });
+    const tileSet = map.addTilesetImage('practicetileset-topdown', 'tiles', 32, 32, 0, 0);
+    const background = map.createLayer('Tile Layer 1', tileSet, 0, 0);
+    const layer1 = map.createLayer('Tile Layer 2', tileSet, 0, 0)
+    //background.setCollisionByProperty({ collide:true });
+    //this.matter.world.convertTilemapLayer(background);
+
+
     this.player = new Player({ scene: this, x: this.game.renderer.width / 2, y: this.game.renderer.height / 2, texture: 'playerFront', frame: 0 });
 
     this.player.inputKeys = this.input.keyboard.addKeys({
@@ -23,32 +33,6 @@ export default class MainScene extends Phaser.Scene {
       left2: Phaser.Input.Keyboard.KeyCodes.LEFT,
       right2: Phaser.Input.Keyboard.KeyCodes.RIGHT,
     })
-
-  
-    // this.anims.create({
-    //   key: 'walkDown',
-    //   frameRate: 10,
-    //   repeat: -1,
-    //   frames: this.anims.generateFrameNumbers('playerFront',{frames:[0,1,2,3]})
-    // });
-    // this.anims.create({
-    //   key: 'walkUp',
-    //   frameRate: 10,
-    //   repeat: -1,
-    //   frames: this.anims.generateFrameNumbers('playerBack',{frames:[0,1,2,3]})
-    // });
-    // this.anims.create({
-    //   key: 'walkRight',
-    //   frameRate: 10,
-    //   repeat: -1,
-    //   frames: this.anims.generateFrameNumbers('playerRight',{frames:[0,1,2,3]})
-    // });
-    // this.anims.create({
-    //   key: 'walkLeft',
-    //   frameRate: 10,
-    //   repeat: -1,
-    //   frames: this.anims.generateFrameNumbers('playerLeft',{frames:[0,1,2,3]})
-    // })
   }
 
   update() {
