@@ -13,13 +13,16 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
+    console.log('reach create')
     const map = this.make.tilemap({ key: 'map' });
+    console.log('create map')
     const tileSet = map.addTilesetImage('practicetileset-topdown', 'tiles', 32, 32, 0, 0);
-    const background = map.createLayer('Tile Layer 1', tileSet, 0, 0);
-    const layer1 = map.createLayer('Tile Layer 2', tileSet, 0, 0)
-    //background.setCollisionByProperty({ collide:true });
-    //this.matter.world.convertTilemapLayer(background);
+    console.log('add tiles')
+    const background = map.createStaticLayer('Tile Layer 1', tileSet, 0, 0);
+    const layer2 = map.createStaticLayer('Tile Layer 2', tileSet, 0, 0)
 
+    background.setCollision( [0,1,2,3,4,5,6,7,16,17,18,19,20,21,22,23,33,34,35,36,38,49,50,51,52,53,54,55,64,65,80,81]);
+    this.matter.world.convertTilemapLayer(background);
 
     this.player = new Player({ scene: this, x: this.game.renderer.width / 2, y: this.game.renderer.height / 2, texture: 'playerFront', frame: 0 });
 
