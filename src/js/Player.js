@@ -12,7 +12,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     var playerSensor = Bodies.circle(this.x, this.y, 24, { isSensor: true, label: 'playerSensor' });
     const compoundBody = Body.create({
       parts: [playerCollider, playerSensor],
-      frictionAir: 0.35
+      frictionAir: 0.25
     });
 
     this.setExistingBody(compoundBody);
