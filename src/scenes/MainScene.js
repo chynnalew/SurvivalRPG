@@ -19,7 +19,7 @@ export default class MainScene extends Phaser.Scene {
     const background = map.createLayer('Tile Layer 1', tileSet, 0, 0);
     const layer2 = map.createLayer('Tile Layer 2', tileSet, 0, 0)
     //add collision to walls
-    background.setCollision([0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 33, 34, 35, 36, 38, 49, 50, 51, 52, 53, 54, 55, 56, 64, 65, 80, 81]);
+    background.setCollision([0, 1, 2, 3, 4, 5, 6, 7, 8,16, 17, 18, 19, 20, 21, 22, 23, 33, 34, 35, 36, 38, 39, 49, 50, 51, 52, 53, 54, 55, 56, 64, 65, 80,82]);
     layer2.setCollision([25, 26, 41, 57, 59, 60, 61])
     this.matter.world.convertTilemapLayer(background);
     this.matter.world.convertTilemapLayer(layer2);
